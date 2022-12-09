@@ -1,33 +1,68 @@
 Q1. How do you load a CSV file into a Pandas DataFrame?
+Ans:- 
+import pandas as pd 
+
+df = pd.read_csv('Weekly_Report.csv')
+
+print(df.to_string()) 
 
 Q2. How do you check the data type of a column in a Pandas DataFrame?
+Ans:-
+Using “dtype” attribute we can get the data type.
+result = df.dtypes
 
 Q3. How do you select rows from a Pandas DataFrame based on a condition?
+Ans:- Using index we can get the selected number of columns.
+df[2:4]
 
 Q4. How do you rename columns in a Pandas DataFrame?
+Ans:- Using rename attribute column name can be changed.
+df.rename(columns = {'bookid':'Booking_ID'}, inplace = True)
 
 Q5. How do you drop columns in a Pandas DataFrame?
+Ans:- Using drop attribute column name can be droped.
+df.drop('facid', inplace=True, axis=1)
 
 Q6. How do you find the unique values in a column of a Pandas DataFrame?
+Ans:- Using unique attribute we can get the list of unique values.
+df.date.unique()
 
 Q7. How do you find the number of missing values in each column of a Pandas DataFrame?
+Ans:- Using isna we can get the count of the single column.
+df['bookid'].isna().sum()
 
 Q8. How do you fill missing values in a Pandas DataFrame with a specific value?
+Ans:-Filling missing value using fillna() 
+df.fillna(0)
 
 Q9. How do you concatenate two Pandas DataFrames?
+Ans:- concat() function in pandas is used to append either columns or rows from one DataFrame to another.
+frames = [df1, df2]  
+result = pd.concat(frames)
 
 Q10. How do you merge two Pandas DataFrames on a specific column?
+Ans:-  Using merge we can combine two datafram with specific column.
+df1.merge(df2[['Name', 'Grade', 'Rank']])
 
 Q11. How do you group data in a Pandas DataFrame by a specific column and apply an aggregation function?
+Ans:-Using groupby() we can group by sepcific column. 
+df.groupby('Team')
 
 Q12. How do you pivot a Pandas DataFrame?
+Ans:-Using pivot return reshaped DataFrame organized by given index / column values.
+df.pivot(index='foo', columns='bar', values='baz')
 
 Q13. How do you change the data type of a column in a Pandas DataFrame?
+Ans:- astype attribute to change the data type.
+df1["Year"] = df1["Year"].astype("int64")
 
 Q14. How do you sort a Pandas DataFrame by a specific column?
+Ans:- sort_values attribute we can sort the values. 
+df.sort_values('2')
 
 Q15. How do you create a copy of a Pandas DataFrame?
-
+Ans:- Using Copy attribute we can copy the values.
+new_df = df.copy()
 Q16. How do you filter rows of a Pandas DataFrame by multiple conditions?
 
 Q17. How do you calculate the mean of a column in a Pandas DataFrame?
